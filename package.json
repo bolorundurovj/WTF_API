@@ -1,0 +1,11 @@
+{
+  "name": "wtf",
+  "version": "1.0.0",
+  "description": "A REST API for Messaging Acronyms",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "author": "Bolorunduro Valiant-Joshua",
+  "license": "MIT"
+}
