@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app",
     "dev": "nodemon app",
-    "test": "npm run test"
+    "test": "nyc mocha 'tests/*.js' --recursive --exit --reporter dot",
+    "coverage": "nyc --reporter html --reporter text npm test"
   },
   "author": "Bolorunduro Valiant-Joshua",
   "license": "MIT",
@@ -21,6 +22,11 @@
     "xss-clean": "^0.1.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "nyc": "^15.1.0",
+    "request": "^2.88.2",
+    "supertest": "^6.0.1"
   }
 }
