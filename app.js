@@ -3,6 +3,9 @@ const dotenv = require('dotenv');
 const path = require('path');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
+const xss = require('xss-clean');
+const hpp = require('hpp');
 
 const connectDB = require('./config/db');
 
@@ -29,8 +32,17 @@ app.get('/', function (req, res) {
 //Logging middleware
 app.use(logger);
 
+//Set security headers
+app.use(helmet());
+
 //Body Parser
 app.use(express.json());
+
+//Prevent XSS attacks
+app.use(xss());
+
+//Prevent HPP attacks
+app.use(hpp());
 
 //Rate Limiting
 const limiter = rateLimit({
