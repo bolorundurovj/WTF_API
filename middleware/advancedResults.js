@@ -1,5 +1,10 @@
 const Acronym = require('../models/Acronym');
 
+/**
+ * Receives Model reference and fields to populate (optional)
+ * @param {*} model
+ * @param {*} populate
+ */
 const advancedResults = (model, populate) => async (req, res, next) => {
   //Copy req query
   const reqQuery = { ...req.query };
@@ -17,16 +22,14 @@ const advancedResults = (model, populate) => async (req, res, next) => {
 
   //Search
   if (req.query.search) {
-    //Finding resource
-    query = model.find(
-      {
-        $text: {
-          $search: req.query.search,
-        },
-      }
-    );
+    //Finding resource with search text
+    query = model.find({
+      $text: {
+        $search: req.query.search,
+      },
+    });
   } else {
-    //Finding resource
+    //Finding resource without search text
     query = model.find(queryStr);
   }
 

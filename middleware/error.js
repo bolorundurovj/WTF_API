@@ -1,5 +1,12 @@
 const ErrorResponse = require('../utilities/errorResponse');
 
+/**
+ * Receives error, and determines message to show
+ * @param {*} err 
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 const errorHandler = (err, req, res, next) => {
   let error = { ...err };
   error.message = err.message;

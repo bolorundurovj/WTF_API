@@ -14,6 +14,7 @@ connectDB();
 
 //Route files
 const acronym = require('./routes/acronyms');
+const random = require('./routes/random');
 
 //Middleware Imports
 const logger = require('./middleware/logger');
@@ -48,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Mount routers
 app.use('/api/v1/acronym', acronym);
+app.use('/api/v1/random', random);
 
 //Use Error Handler
 app.use(errorHandler);
